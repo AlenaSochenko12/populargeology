@@ -1,0 +1,219 @@
+@media (max-width: 768px) {
+    .center {
+        padding-left: calc(50% - 350px);
+        padding-right: calc(50% - 350px);
+    }
+    .top {
+        height: auto;
+        &-bottom {
+            padding-bottom: 0px;
+        }
+    }
+    .logo {
+        font-size: 24px;
+    }
+    .header {
+        gap: 40px;
+    }
+    .menu {
+        font-size: 14px;
+        &-1 {
+            gap: 0px;
+        }
+    }
+    .menu {
+        display: none;
+        font-size: 14px;
+        &:hover {
+            color: #E55C22;
+        }
+    }
+    .menu2 {
+        display: block;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        line-height: 20px;
+    }
+    .menu-1 {
+        padding-top: 12px;  
+        display: flex;
+        gap: 40px;
+    }
+    .title {
+        width: 680px;
+        font-size: 44px;
+        line-height: 70px;
+        padding-top: 40px;
+        &-sub {
+            width: 350px;
+            padding-top: 25px;
+            font-size: 14px;
+            &-1 {
+                padding-top: 20px;
+            }
+            &-3 {
+                padding-top: 30px;
+                width: auto;
+                font-size: 18px;
+            }
+        }
+    }
+    .team {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 20px;
+        &-2 {
+            padding-top: 30px;
+        }
+        &-3 {
+            font-size: 24px;
+        }
+    }
+    .explosion {
+        padding-top: 28px;
+        padding-left: 0px;
+        width: 544px;
+        &-1 {
+            width: 300px;
+        }
+    }
+    .btn-study {
+        width: 240px;
+        margin-top: 50px;
+        padding-left: 10px;
+        gap: 14px;
+    }
+    .study {
+        font-size: 14px;
+        margin-top: 8px;
+        &-btn {
+            width: 35px;
+        }
+    }
+    .general {
+        &-stripe {
+            gap: 12px;
+            height: 35px;
+            padding-top: 8px;
+            margin-top: 60px;
+            padding-left: 8px;
+            padding-right: 8px;
+            &-text {
+                font-size: 13px;
+                padding-top: 0px;
+            }
+        }
+        &-iconics {
+            width: 25px;
+            height: 25px;
+        }
+        &-title {
+            font-size: 50px;
+            line-height: 66px;
+            padding-top: 170px;
+            &-sub {
+                width: 600px;
+                padding-top: 30px;
+                font-size: 14px;
+            }
+            &-2 {
+                padding-top: 0px;
+            }
+        }
+        &-buttons {
+            grid-template-columns: 200px;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+    }
+    .content {
+        padding-top: 20px;
+    }  
+    .formats {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .button-format {
+        width: 150px;
+        padding-top: 15px;
+        height: 35px;
+
+    }
+    .btn-format {
+        font-size: 14px;
+    }
+    .clicked-text {
+        font-size: 14px;
+    }
+    .video1 {
+        width: 700px;
+    }
+    .article {
+        width: 300px;
+        height: 220px;
+        &-title {
+            padding-top: 8px;
+            font-size: 14px;
+        }
+        &-text {
+            display: none;
+        }
+        &:hover {
+            border-color: #E55C22;
+            color: #E55C22;
+        }
+    }
+    .object {
+        &-title {
+            font-size: 36px;
+            padding-top: 24px;
+            padding-left: 60px;
+            line-height: 64px;
+        }
+        &-time {
+            font-size: 18px;
+        }
+        &-content {
+            font-size: 16px;
+        }
+        &-button {
+            margin-top: 20px;
+            font-size: 16px;
+            width: 100px;
+        }
+      }
+    .footer {
+        gap: 200px;
+        padding-top: 24px;
+        &-sub {
+            font-size: 12px;
+            width: 220px;
+        }
+        &-contacts {
+            gap: 70px;
+            &-text {
+                font-size: 12px;
+                padding-top: 4px;
+                display: none;
+            }
+            &-svg {
+                width: 25px;
+            }
+        }
+    }
+    .slider {
+		padding: 0px 0px;
+	}
+    .wrapper{
+        padding: 50px 10px;
+    }
+    .slider .slick-arrow{
+        width: 28px;
+        height: 28px;
+    }
+}

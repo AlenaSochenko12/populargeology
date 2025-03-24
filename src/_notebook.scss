@@ -1,0 +1,183 @@
+@media (max-width: 1024px) {
+    .center {
+        padding-left: calc(50% - 450px);
+        padding-right: calc(50% - 450px);
+    }
+    .top {
+        height: auto;
+        &-bottom {
+            padding-bottom: 0px;
+        }
+    }
+    .logo {
+        font-size: 28px;
+    }
+    .menu {
+        font-size: 14px;
+        &-1 {
+            padding-top: 12px;  
+            display: flex;
+            gap: 56px;
+        }
+        &:hover {
+            color: #E55C22;
+        }
+    }
+    .title {
+        width: 680px;
+        font-size: 50px;
+        line-height: 70px;
+        padding-top: 40px;
+        &-sub {
+            width: 500px;
+            padding-top: 30px;
+            font-size: 14px;
+            &-1 {
+                padding-top: 20px;
+            }
+            &-3 {
+                padding-top: 30px;
+                width: auto;
+                font-size: 18px;
+            }
+        }
+    }
+    .explosion {
+        padding-top: 28px;
+        padding-left: 20px;
+        width: 544px;
+        &-1 {
+            width: 400px;
+        }
+    }
+    .btn-study {
+        width: 240px;
+        padding-left: 10px;
+        gap: 14px;
+    }
+    .study {
+        font-size: 14px;
+        margin-top: 8px;
+        &-btn {
+            width: 35px;
+        }
+    }
+    .general {
+        &-stripe {
+            gap: 16px;
+            height: 40px;
+            padding-top: 8px;
+            margin-top: 60px;
+            padding-left: 8px;
+            padding-right: 8px;
+            &-text {
+                font-size: 18px;
+                padding-top: 3px;
+            }
+        }
+        &-iconics {
+            width: 30px;
+            height: 30px;
+        }
+        &-title {
+            font-size: 50px;
+            line-height: 66px;
+            padding-top: 170px;
+            &-sub {
+                padding-top: 30px;
+                font-size: 16px;
+            }
+            &-2 {
+                padding-top: 0px;
+            }
+        }
+        &-buttons {
+            grid-template-columns: 200px;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+    }
+    .content {
+        padding-top: 20px;
+    }  
+    .formats {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .button-format {
+        width: 200px;
+        padding-top: 15px;
+        height: 35px;
+
+    }
+    .btn-format {
+        font-size: 14px;
+    }
+    .clicked-text {
+        font-size: 14px;
+    }
+    .video1 {
+        width: 900px;
+    }
+    .article {
+        width: 300px;
+        height: 220px;
+        &-title {
+            padding-top: 8px;
+            font-size: 14px;
+        }
+        &-text {
+            display: none;
+        }
+        &:hover {
+            border-color: #E55C22;
+            color: #E55C22;
+        }
+    }
+    .object {
+        &-title {
+            font-size: 36px;
+            padding-top: 24px;
+            padding-left: 60px;
+            line-height: 64px;
+        }
+        &-time {
+            font-size: 18px;
+        }
+        &-content {
+            font-size: 16px;
+        }
+        &-button {
+            margin-top: 20px;
+            font-size: 16px;
+            width: 100px;
+        }
+      }
+    .footer {
+        gap: 40px;
+        padding-top: 24px;
+        &-contacts {
+            gap: 28px;
+            &-text {
+                font-size: 14px;
+                padding-top: 4px;
+            }
+            &-phone {
+                gap: 8px;
+            }
+            &-tg {
+                gap: 8px;
+            }
+            &-email {
+                gap: 8px;
+            }
+        }
+    }
+    .slider .slick-arrow{
+        width: 40px;
+        height: 40px;
+    }
+}
