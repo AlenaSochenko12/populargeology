@@ -12,13 +12,12 @@ html {
     padding-right: calc(50% - 584px);
 }
 .top {
-    height: 940px;
+    height: 880px;
     background-color: #141210;
-    padding-top: 20px;
-    &-bottom { //НЕ ТРОГАТЬ
-        &-text { //НЕ ТРОГАТЬ
-            display: flex; //НЕ ТРОГАТЬ
-        }    //НЕ ТРОГАТЬ
+    &-bottom {
+        &-text {
+            display: flex; 
+        }    
     }
     &-1 {
         height: auto;
@@ -163,119 +162,11 @@ html {
     display: flex;
     justify-content: center;
 }
-.clicked-btn {
-    border: 1px solid #E55C22; 
-}
-.clicked-text {
-    color: #E55C22;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 16px;
-    text-align: center;
-    text-decoration: none;
-}
-.btn-format {
-    color: #FFF;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 16px;
-    text-align: center;
-    text-decoration: none;
-}
+
 .video {
     margin-top: 40px;
     display: none;
 }
-.video1 {
-    width: 1175px;
-}
-.hidearticles {
-    display: none;
-}
-.articles {
-    display: flex;
-    gap: 44px;
-    flex-wrap: wrap;
-}
-.article {
-    display: flex;
-    flex-direction: column;
-    width: 356px;
-    border: 2px solid #6b6b6b;
-    border-radius: 10px;
-    height: 270px;
-    color: #FFF;
-    text-decoration: none;
-    &-photo {
-        object-fit: cover;
-        min-height: 85%;
-        width: 100%;
-        border-radius: 10px;
-    }
-    &-title {
-        text-align: center;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    &-text {
-        display: none;
-    }
-    &:hover {
-        border-color: #E55C22;
-        color: #E55C22;
-    }
-}
-.object {
-    display: none;
-    margin-top: 40px;
-    padding-bottom: 80px;
-    &-general {
-        border: 2px solid #6b6b6b;
-        border-radius: 10px;
-        padding-bottom: 40px;
-    }  
-    &-title {
-        color: #db6735;
-        font-family: Golos Text;
-        font-size: 48px;
-        font-weight: 500;
-        line-height: 77px;
-        padding-top: 40px;
-        padding-left: 60px;
-    }
-    &-time {
-        color: #a4a4a4;
-        font-size: 24px;
-        font-weight: 400;
-        padding-left: 60px;
-        padding-bottom: 10px;
-    }
-    &-content {
-        font-family: Montserrat, sans-serif;
-        color: #dfdfdf;
-        font-size: 18px;
-        text-align:justify;
-        font-weight: 500;
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-    &-button {
-        margin-left: 60px;
-        margin-top: 40px;
-        background-color: #141210;
-        color: #e2e2e2;
-        font-size: 18px;
-        width: 150px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        border: 1px solid #F4F4F4;
-        border-radius: 20px;
-        &:hover {
-            border-color: #E55C22;
-            color: #E55C22;
-        }
-    }
-  }
 .general {
     &-stripe {
         display: flex;

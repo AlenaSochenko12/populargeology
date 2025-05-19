@@ -1,8 +1,8 @@
 import './About.scss'
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Header from '../../components/sections/Header/Header';
+import Footer from '../../components/sections/Footer/Footer';
 
 function About() {
 

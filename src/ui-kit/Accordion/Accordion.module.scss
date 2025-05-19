@@ -1,0 +1,31 @@
+.accordionWrapper {
+    width: 100%;
+    min-height: 52vh;
+    padding-bottom: 60px;
+}
+
+.buttonRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: nowrap;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.accordionButton {
+    flex: 1;
+}
+.accordionContent {
+    margin-top: 60px;
+    overflow: visible;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.accordionContent.open {
+    max-height: 100vh;
+    opacity: 1;
+}

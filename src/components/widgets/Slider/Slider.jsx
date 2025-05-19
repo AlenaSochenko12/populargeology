@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Slider.scss'
+import { SliderButton } from "../../../ui-kit/Buttons/SliderButton";
 
 import bigv from "/img-video/bigv.jpeg";
 import solarsystem from "/img-video/solarsystem.jpeg";
@@ -29,9 +30,8 @@ const SlickSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: <PrevArrow />, // Передаём кастомные стрелки
+    prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-    
   };
 
   const slidesData = [
@@ -80,7 +80,7 @@ const SlickSlider = () => {
               <h1 className="general-title general-title-2">{slide.title2}</h1>
               <p className="general-title-sub">{slide.description}</p>
               <Link className="general-buttons-href" to={slide.link}>
-                <button className="general-buttons">УВИДЕТЬ БОЛЬШЕ</button>
+                <SliderButton>УВИДЕТЬ БОЛЬШЕ</SliderButton>
               </Link>
             </div>
           </div>
