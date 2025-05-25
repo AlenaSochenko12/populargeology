@@ -1,138 +1,224 @@
-import React, { useState } from 'react';
-import Accordion from '../../ui-kit/Accordion/Accordion';
-import videoFile from '../../../img-video/videos/Earth_Theia_Collision_2.mp4';
+import React, { useState, useRef, useEffect } from 'react';
+import $ from 'jquery';
+import axios from 'axios';
 
 function Moon() {
-    const [selectedArticleId, setSelectedArticleId] = useState(null);
+    const [activeButton, setActiveButton] = useState(0);
+    const [selectedArticle, setSelectedArticle] = useState(null);
+    const [showObjectInfo, setShowObjectInfo] = useState(false);
+    const [contentData, setContentData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const contentData = [
-        {
-            id: 1,
-            type: 'video',
-            src: videoFile,
-        },
-        {
-            id: 2,
-            type: 'article',
-            title: 'Формирование Луны',
-            time: '4.5 Млрд. лет назад',
-            text: 'Когда наша Солнечная система формировалась почти четыре с половиной миллиарда лет назад, объект размером с планету столкнулся с ранней Землей, что привело к образованию Луны, возможно, из горячего вращающегося облака каменного пара, называемого синестией. [...]',
-            photo: 'img-video/articles/moon1.png',
-        },
-        {
-            id: 3,
-            type: 'article',
-            title: 'Миссия Аполлона-11',
-            time: '20 июля 1969',
-            text: 'Основной задачей Аполлона-11 было выполнение национальной цели: посадка на Луну с экипажем и возвращение на Землю. [...]',
-            photo: 'img-video/articles/apollo.png',
-        },
-        {
-            id: 4,
-            type: 'gallery',
-            title: 'Лунный метеорит ALHA 81005',
-            photo: 'img-video/exhibits/pic117_4_3.png',
-        },
-        {
-            id: 5,
-            type: 'gallery',
-            title: 'Лунный метеорит Дар аль Гани 400',
-            photo: 'img-video/exhibits/pic118_4_3.png',
-        },
-        {
-            id: 6,
-            type: 'gallery',
-            title: 'Великий Скотт (базальт)',
-            photo: 'img-video/exhibits/pic119_4_3.png',
-        },
-        {
-            id: 7,
-            type: 'gallery',
-            title: 'Дар аль Гани 400',
-            photo: 'img-video/exhibits/pic120_4_3.png',
-        },
-        {
-            id: 8,
-            type: 'gallery',
-            title: 'Лунный ахондрит',
-            photo: 'img-video/exhibits/pic121_4_3.png',
-        },
-        {
-            id: 9,
-            type: 'gallery',
-            title: '"Рождение" Луны',
-            photo: 'img-video/exhibits/pic122_4_3.png',
-        },
-        {
-            id: 10,
-            type: 'gallery',
-            title: 'Маре Базальт',
-            photo: 'img-video/exhibits/pic123_4_3.png',
-        },
-    ];
+    const hide1Ref = useRef(null);
+    const hide2Ref = useRef(null);
+    const hide3Ref = useRef(null);
+    const objectInfoRef = useRef(null);
 
-    const handleArticleClick = (articleId) => {
-        setSelectedArticleId(selectedArticleId === articleId ? null : articleId);
+    useEffect(() => {
+        setLoading(true);
+        axios.get('http://localhost:8000/api/moon/?time=moonFormation')
+            .then(response => {
+                const { video, articles, gallery } = response.data;
+
+                const newContentData = [
+                    ...(video ? [{
+                        id: video.id,
+                        type: 'video',
+                        src: `http://localhost:8000/media/${video.video}`,
+                    }] : []),
+                    ...articles.map(article => ({
+                        id: article.id,
+                        type: 'article',
+                        title: article.title,
+                        time: article.time_ago,
+                        text: article.text,
+                        photo: article.image ? `http://localhost:8000/media/${article.image}` : 'http://localhost:8000/media/articles/default.jpg',
+                    })),
+                    ...gallery.map(exhibit => ({
+                        id: exhibit.id,
+                        type: 'gallery',
+                        title: exhibit.title,
+                        photo: exhibit.image ? `http://localhost:8000/media/${exhibit.image}` : 'http://localhost:8000/media/exhibits/default.jpg',
+                        text: exhibit.text || '',
+                        time: exhibit.time_ago,
+                    })),
+                ];
+
+                setContentData(newContentData);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Ошибка при загрузке данных:', error);
+                setLoading(false);
+            });
+    }, []);
+
+    const handleArticleClick = (article) => {
+        setSelectedArticle(article);
+        setShowObjectInfo(true);
     };
 
-    const accordionItems = [
-        {
-            key: 'video',
-            title: 'ВИДЕО',
-            content: (
-                <video className="video1" controls src={videoFile} type="video/mp4" />
-            ),
-        },
-        {
-            key: 'articles',
-            title: 'СТАТЬИ',
-            content: (
-                <div className="articles">
+    const handleBackClick = () => {
+        setShowObjectInfo(false);
+        setSelectedArticle(null);
+    };
+
+    const handleButtonClick = (buttonNumber) => {
+        setActiveButton(prevActiveButton => (prevActiveButton === buttonNumber ? 0 : buttonNumber));
+    };
+
+    useEffect(() => {
+        $(".video-section").hide();
+        $(".articles-section").hide();
+        $(".gallery-section").hide();
+
+        if (activeButton === 1) {
+            $(hide1Ref.current).slideToggle('slow');
+        } else if (activeButton === 2) {
+            $(hide2Ref.current).slideToggle('slow');
+        } else if (activeButton === 3) {
+            $(hide3Ref.current).slideToggle('slow');
+        }
+
+        if (showObjectInfo) {
+            $(objectInfoRef.current).show();
+        } else {
+            $(objectInfoRef.current).hide();
+        }
+    }, [activeButton, showObjectInfo]);
+
+    const renderContent = () => {
+        if (loading) {
+            return <div className="loading">Загрузка...</div>;
+        }
+
+        if (activeButton === 1) {
+            const videoItem = contentData.find(item => item.type === 'video');
+            if (videoItem) {
+                return (
+                    <div className="video-container video-section" ref={hide1Ref}>
+                        <video
+                            className="video1"
+                            controls
+                            src={videoItem.src}
+                            type="video/mp4"
+                            onError={(e) => console.error("Video error:", e)}
+                        />
+                    </div>
+                );
+            } else {
+                return <p>Видео не найдено.</p>;
+            }
+        }
+
+        if (activeButton === 2) {
+            return (
+                <div className="articles center articles-section" ref={hide2Ref}>
                     {contentData
                         .filter((item) => item.type === 'article')
                         .map((article) => (
-                            <div key={article.id} className="article-wrapper">
-                                <a className="article" onClick={() => handleArticleClick(article.id)}>
-                                    <img className="article-photo" src={article.photo} alt="card" />
-                                    <div className="article-title">{article.title}</div>
-                                </a>
-                                {selectedArticleId === article.id && (
-                                    <div className="article-expanded">
-                                        <h2>{article.title}</h2>
-                                        <div className="article-time">{article.time}</div>
-                                        <div className="article-content">{article.text}</div>
-                                    </div>
-                                )}
-                            </div>
+                            <a
+                                key={article.id}
+                                className="article"
+                                onClick={() => handleArticleClick(article)}
+                            >
+                                <img className="article-photo" src={article.photo} alt={article.title} />
+                                <div className="article-title article-title-2">{article.title}</div>
+                            </a>
                         ))}
                 </div>
-            ),
-        },
-        {
-            key: 'gallery',
-            title: 'ГАЛЕРЕЯ',
-            content: (
-                <div className="articles">
+            );
+        }
+
+        if (activeButton === 3) {
+            return (
+                <div className="articles center gallery-section" ref={hide3Ref}>
                     {contentData
                         .filter((item) => item.type === 'gallery')
-                        .map((item) => (
-                            <div key={item.id} className="article">
-                                <img className="article-photo" src={item.photo} alt="card" />
-                                <div className="article-title">{item.title}</div>
-                            </div>
+                        .map((galleryItem) => (
+                            <a
+                                key={galleryItem.id}
+                                className="article"
+                                onClick={() => handleArticleClick(galleryItem)}
+                            >
+                                <img
+                                    className="article-photo"
+                                    src={galleryItem.photo}
+                                    alt={galleryItem.title}
+                                />
+                                <div className="article-title article-title-2">{galleryItem.title}</div>
+                            </a>
                         ))}
                 </div>
-            ),
-        },
-    ];
+            );
+        }
+        return null;
+    };
 
     return (
         <div className="top top-1">
             <div className="top-bottom center">
                 <h1 className="title title-1">ОБРАЗОВАНИЕ ЛУНЫ</h1>
-                <p className="title-sub">Выберите инструмент, с помощью которого хотите изучить данный отрезок времени.</p>
-
-                <Accordion items={accordionItems} />
+                <div className="top-bottom-text">
+                    <div className="top-bottom-text-sub">
+                        <p className="title-sub title-sub-1">
+                            Выберите инструмент, с помощью которого хотите изучить данный отрезок времени.
+                        </p>
+                    </div>
+                </div>
+                <div className="formats">
+                    <div
+                        id="myButton1"
+                        className={`button-format ${activeButton === 1 ? 'clicked-btn' : ''}`}
+                        onClick={() => handleButtonClick(1)}
+                    >
+                        <a id="textButton1" href="#" className={`btn-format ${activeButton === 1 ? 'clicked-text' : ''}`}>
+                            ВИДЕО
+                        </a>
+                    </div>
+                    <div
+                        id="myButton2"
+                        className={`button-format ${activeButton === 2 ? 'clicked-btn' : ''}`}
+                        onClick={() => handleButtonClick(2)}
+                    >
+                        <a id="textButton2" href="#" className={`btn-format ${activeButton === 2 ? 'clicked-text' : ''}`}>
+                            СТАТЬИ
+                        </a>
+                    </div>
+                    <div
+                        id="myButton3"
+                        className={`button-format ${activeButton === 3 ? 'clicked-btn' : ''}`}
+                        onClick={() => handleButtonClick(3)}
+                    >
+                        <a id="textButton3" href="#" className={`btn-format ${activeButton === 3 ? 'clicked-text' : ''}`}>
+                            ГАЛЕРЕЯ
+                        </a>
+                    </div>
+                </div>
+                <div className="content" id="content" style={{ display: showObjectInfo ? 'none' : 'block' }}>
+                    {renderContent()}
+                </div>
+                <div
+                    className="object center"
+                    id="object-info"
+                    ref={objectInfoRef}
+                    style={{ display: showObjectInfo ? 'block' : 'none' }}
+                >
+                    <div className="object-general">
+                        <h2 className="object-title" id="title-content">
+                            {selectedArticle ? selectedArticle.title : 'Информация об объекте'}
+                        </h2>
+                        <div className="object-time" id="info-time">
+                            {selectedArticle ? selectedArticle.time : ''}
+                        </div>
+                        <div className="object-content" id="info-content">
+                            {selectedArticle ? selectedArticle.text : ''}
+                        </div>
+                        <button className="object-button" id="back-button" onClick={handleBackClick}>
+                            Назад
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     );

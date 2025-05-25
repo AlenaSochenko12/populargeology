@@ -1,262 +1,386 @@
-@media (max-width: 426px){ //прописать
-    .center {
-        padding-left: calc(50% - 150px);
-        padding-right: calc(50% - 150px);
+@media (max-width: 426px) {
+  .center {
+    margin: 0 auto !important;
+    padding: 0 10px !important;
+  }
+
+  .top {
+    height: auto !important;
+    padding-bottom: 20px !important;
+
+    &-bottom {
+      padding-bottom: 0 !important;
+      height: auto !important;
     }
-    .top {
-        &-bottom {
-            padding-bottom: 0px;
-            height: 100%;
-        }
+  }
+
+  .logo {
+    font-size: 20px !important;
+  }
+
+  .header {
+    gap: 20px !important;
+    padding: 10px !important;
+    height: auto !important;
+    justify-content: space-between !important;
+  }
+
+  .menu {
+    display: none !important;
+    font-size: 14px !important;
+
+    &:hover {
+      color: #E55C22 !important;
     }
-    .logo {
-        font-size: 24px;
+
+    &-1 {
+      gap: 10px !important;
     }
-    .header {
-        gap: 40px;
+  }
+
+  .menu2 {
+    display: none !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    line-height: 20px !important;
+  }
+
+  .menu3 {
+    display: block !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    line-height: 20px !important;
+  }
+
+  .title {
+    width: 80% !important;
+    font-size: 28px !important;
+    line-height: 36px !important;
+    padding-top: 20px !important;
+
+    &-sub {
+      width: 80% !important;
+      display: block !important;
+      padding-top: 15px !important;
+      font-size: 14px !important;
+
+      &-1 {
+        padding-top: 15px !important;
+      }
+
+      &-2 {
+        display: block !important;
+      }
+
+      &-3 {
+        padding-top: 10px !important;
+        font-size: 16px !important;
+      }
+
+      &-4 {
+        padding-top: 10px !important;
+        padding-bottom: 15px !important;
+      }
     }
-    .menu {
-        font-size: 14px;
+  }
+
+  .people {
+    font-size: 16px !important;
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    text-align: center !important;
+  }
+
+  .select_order {
+    font-size: 14px !important;
+    width: 100% !important;
+    max-width: 200px !important;
+    margin-top: 15px !important;
+    padding: 5px !important;
+    text-align: center !important;
+  }
+
+  .earth-selector select{
+    margin-top: 12px !important;
+    width: 120px !important;
+    appearance: auto !important;
+    font-size: 12px !important;
+    align-items: center;
+    display: flex;
+}
+
+  .team {
+    padding: 15px 0 !important;
+    font-size: 18px !important;
+    text-align: center !important;
+
+    &-2 {
+      padding-top: 20px !important;
+    }
+
+    &-3 {
+      font-size: 18px !important;
+    }
+  }
+
+  .explosion {
+    display: none !important;
+  }
+
+  .btn-study {
+    width: 200px !important;
+    margin-top: 30px !important;
+    padding-left: 5px !important;
+    gap: 5px !important;
+    border-top: 3px solid rgba(255, 255, 255, 0.8) !important;
+    border-right: 3px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 0 36px !important;
+    justify-content: center !important;
+  }
+
+  .study {
+    font-size: 12px !important;
+    margin-top: 5px !important;
+
+    &-btn {
+      width: 25px !important;
+    }
+  }
+
+  .study-btn {
+    width: 20px !important;
+    height: 20px !important;
+    padding-top: 6px !important;
+  }
+
+  .general {
+    &-stripe {
+      justify-content: center !important;
+      gap: 10px !important;
+      height: 20px !important;
+      padding: 8px !important;
+      margin-top: 40px !important;
+
+      &-text {
+        display: none !important;
+
         &-1 {
-            gap: 0px;
-        }
-    }
-    .menu {
-        display: none;
-        font-size: 14px;
-        &:hover {
-            color: #E55C22;
-        }
-    }
-    .menu2 {
-        display: none;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 500;
-        text-decoration: none;
-        line-height: 20px;
-    }
-    .menu3 {
-        display: block;
-        color: #fff;
-        font-size: 12px;
-        font-weight: 500;
-        text-decoration: none;
-        line-height: 20px;
-    }
-    .title {
-        width: 200px;
-        font-size: 34px;
-        line-height: 50px;
-        padding-top: 40px;
-        &-sub {
-            display: none;
-            &-1 {
-                padding-top: 20px;
-            }
-            &-2 {
-                display: block;
-            }
-            &-3 {
-                display: block;
-                padding-top: 10px;
-                width: auto;
-                font-size: 18px;
-            }
-            &-4 {
-                display: block;
-                width: auto;
-            }
-        }
-    }
-    .people {
-        font-size: 18px;
-        padding-top: 0px;
-    }
-    .select_order {
-        font-size: 14px;
-
-    }
-    .team {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        font-size: 20px;
-        &-2 {
-            padding-top: 30px;
-        }
-        &-3 {
-            font-size: 20px;
-        }
-    }
-    .explosion {
-        display: none;
-    }
-    .btn-study {
-        width: 200px;
-        margin-top: 50px;
-        padding-left: 4px;
-        gap: 8px;
-    }
-    .study {
-        font-size: 12px;
-        margin-top: 8px;
-        &-btn {
-            width: 35px;
-        }
-    }
-    .study-btn {
-        width: 30px;
-        height: 30px;
-    }
-    .general {
-        &-stripe {
-            justify-content: center;
-            gap: 20px;
-            height: 35px;
-            padding-top: 8px;
-            margin-top: 60px;
-            padding-left: 8px;
-            padding-right: 8px;
-            &-text {
-                display: none;
-                &-1 {
-                    display: block;
-                    font-family: Golos Text;
-                    font-size: 18px;
-                    font-weight: 500;
-                    line-height: 29px;
-                    padding-top: 0px;
-                }
-            }
-        }
-        &-iconics {
-            display: none;
-            &-1 {
-                display: block;
-                width: 25px;
-                height: 25px;
-            }
-        }
-        &-title {
-            font-size: 38px;
-            line-height: 44px;
-            padding-top: 110px;
-            &-sub {
-                color: #fff;
-                width: 280px;
-                padding-top: 20px;
-                font-size: 14px;
-            }
-            &-2 {
-                padding-top: 0px;
-
-            }
-        }
-        &-buttons {
-            grid-template-columns: 180px;
-            margin-top: 30px;
-            padding-top: 20px;
-            font-size: 12px;
-        }
-    }
-    .content {
-        padding-top: 20px;
-    }  
-    .formats {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-around;
-    }
-    .button-format {
-        width: 70px;
-        padding-top: 15px;
-        height: 35px;
-
-    }
-    .btn-format {
-        font-size: 12px;
-    }
-    .clicked-text {
-        font-size: 12px;
-    }
-    .video1 {
-        width: 300px;
-    }
-    .article {
-        width: 300px;
-        height: 220px;
-        &-title {
-            padding-top: 8px;
-            font-size: 14px;
-        }
-        &-text {
-            display: none;
-        }
-        &:hover {
-            border-color: #E55C22;
-            color: #E55C22;
-        }
-    }
-    .object {
-        &-title {
-            font-size: 24px;
-            padding-top: 24px;
-            padding-left: 20px;
-            line-height: 30px;
-        }
-        &-time {
-            padding-left: 20px;
-            padding-top: 10px;
-            font-size: 18px;
-        }
-        &-content {
-            font-size: 16px;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-        &-button {
-            margin-left: 20px;
-            margin-top: 20px;
-            font-size: 16px;
-            width: 100px;
+          display: block !important;
+          font-size: 16px !important;
+          line-height: 20px !important;
+          padding-top: 0 !important;
         }
       }
-    .footer {
-        height: 60px;
-        gap: 60px;
-        &-sub {
-            display: none;
-        }
-        &-contacts {
-            padding-top: 10px;
-            gap: 20px;
-            &-text {
-                display: none;
-            }
-            &-svg {
-                width: 20px;
-            }
-        }
     }
-    .wrapper{
-        height: auto;
-        background-color: #141210;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    &-iconics {
+      display: none !important;
+
+      &-1 {
+        display: block !important;
+        width: 20px !important;
+        height: 20px !important;
+      }
     }
-    .slider {
-		padding: 0px 0px;
-	}
-    .wrapper{
-        padding: 0px 0px;
+
+    &-title {
+      font-size: 32px !important;
+      line-height: 38px !important;
+      padding-top: 80px !important;
+
+      &-sub {
+        color: #fff !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        padding-top: 15px !important;
+        font-size: 14px !important;
+      }
+
+      &-2 {
+        padding-top: 0 !important;
+      }
     }
-    .slider .slick-arrow{
-        width: 28px;
-        height: 28px;
-        margin: -30px 10px 0px 10px;
+
+    &-buttons {
+      grid-template-columns: 160px !important;
+      margin-top: 20px !important;
+      padding: 10px !important;
+      font-size: 12px !important;
+      justify-content: center !important;
     }
-    .canvas {
-        height: 500px;
+  }
+
+  .content {
+    padding: 15px 0 !important;
+    min-height: 600px !important;
+  }
+
+  .formats {
+    margin-top: 15px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 4px !important;
+  }
+
+  .button-format {
+    width: 80px !important;
+    padding-top: 10px !important;
+    height: 24px !important;
+    font-size: 12px !important;
+
+    &.clicked-btn {
+      border-color: #E55C22 !important;
     }
+  }
+
+  .btn-format {
+    font-size: 12px !important;
+  }
+
+  .clicked-text {
+    font-size: 12px !important;
+  }
+
+  .video1 {
+    width: 80% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  .articles {
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+  .article {
+    width: 80% !important;
+    max-width: 240px !important;
+    height: auto !important;
+
+    &-title {
+      padding: 8px 0 !important;
+      font-size: 14px !important;
+    }
+
+    &-photo {
+        max-height: 160px !important;
+    }
+
+    &:hover {
+      border-color: #E55C22 !important;
+      color: #E55C22 !important;
+    }
+  }
+
+  .object {
+    padding: 15px 0 !important;
+
+    &-title {
+      font-size: 22px !important;
+      padding: 15px !important;
+      line-height: 28px !important;
+      text-align: center !important;
+    }
+
+    &-time {
+      padding: 10px !important;
+      font-size: 16px !important;
+      text-align: center !important;
+    }
+
+    &-content {
+      font-size: 14px !important;
+      padding: 10px !important;
+      max-width: 90% !important;
+    }
+
+    &-button {
+      margin: 15px auto !important;
+      font-size: 14px !important;
+      width: 90px !important;
+      display: block !important;
+    }
+  }
+
+  .footer {
+    height: auto !important;
+    padding: 10px 0 !important;
+    justify-content: center !important;
+    gap: 80px !important;
+
+    &-sub {
+      display: none !important;
+    }
+
+    &-contacts {
+      padding-top: 12px !important;
+      gap: 15px !important;
+
+      &-text {
+        display: none !important;
+      }
+
+      &-svg {
+        width: 18px !important;
+      }
+    }
+  }
+
+
+
+  .canvas {
+    height: auto !important;
+  }
+
+  canvas {
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .accordionWrapper {
+    min-height: auto !important;
+    padding-bottom: 15px !important;
+  }
+
+  .accordionContent {
+    margin-top: 15px !important;
+  }
+
+  .accordionButton {
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+
+  @media (max-width: 375px) {
+    .center {
+      padding: 0 5px !important;
+    }
+
+    .title {
+      font-size: 24px !important;
+      line-height: 32px !important;
+    }
+
+    .button-format {
+      width: 120px !important;
+    }
+
+    .video1 {
+      max-width: 250px !important;
+    }
+
+    .article {
+      max-width: 250px !important;
+      min-height: 180px !important;
+    }
+  }
 }
